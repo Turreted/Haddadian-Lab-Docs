@@ -1,0 +1,16 @@
+3c3,5
+< #=GS MGYP001461188822/708-747 DE [subseq from] FL=0
+---
+> #=GS MGYP001461188822/708-749 DE [subseq from] FL=0
+> #=GS MGYP002652433193/1-24    DE [subseq from] FL=0
+> #=GS MGYP002889680568/1-24    DE [subseq from] FL=0
+5,7c7,11
+< chain_A                          DAEFRHDSGYEVHHQKLVFFAEDVGSNKGAIIGLMVGGVV
+< MGYP001461188822/708-747         DAEFGHDSGFEVRHQKLVFFAEDVGSNKGAIIGLMVGGVV
+< #=GC RF                          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+---
+> chain_A                          DAEFRHDSGYEVHHQKLVFFAEDVGSNKGAIIGLMVGGVVIA
+> MGYP001461188822/708-749         DAEFGHDSGFEVRHQKLVFFAEDVGSNKGAIIGLMVGGVVIA
+> MGYP002652433193/1-24            ------------------FFAEDVGSNKGAIIGLMVGGVVIA
+> MGYP002889680568/1-24            ------------------FFAEDVGSNKGAIIGLMVGGVVIA
+> #=GC RF                          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
