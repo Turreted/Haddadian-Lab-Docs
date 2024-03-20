@@ -46,7 +46,7 @@ TBD, depending on whether the current RCC version of AlphaFold runs on your syst
 ## Building Systems
 
 ### Non-membrane systems
-If you just have a protein system that you need to build a simulation for, there's an excellent guide by one of Haddadian's TAs [here]() on how to do it with VMD.
+If you just have a protein system that you need to build a simulation for, there's an excellent guide by one of Haddadian's TAs [here](https://github.com/Turreted/Haddadian-Lab-Docs/blob/main/pdfs/vmd_all_atom_system_guide.pdf) on how to do it with VMD.
 
 ### Membrane Systems
 I built all the membrane systems using [CHARMM-GUI](https://charmm-gui.org/), which is an interactive online portal for building MD systems. The tricky bit is orienting the protein an membrane.
