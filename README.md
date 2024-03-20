@@ -1,4 +1,4 @@
-x## General
+## General
 **Simulation Naming Convention**: \<Number of residues\>r.\<Number of chains\>c.\<orientation \> So for example, 42r.3c.embedded is a 42-residue abeta complex with 3 chains that is embedded in the membrane.
 
 **Useful Resources**:
@@ -16,15 +16,15 @@ Steps 1-3 are done for all systems, step 4 needs to be done just for the 40r.13c
 
 2. **cMD Equilibration:** CHAARM-GUI generates all of the NAMD config files for the equilibration automatically, so you just need to run them. Since this can be tedious, the following script will automatically queue and run all of the cMD equilibration steps:
 ```bash
-cp <PATH>/submission-scripts/step6.*-equilib.sh <system-name>/namd
-cp <PATH>/submission-scripts/batch-submit.sh <system-name>/namd
+cp cmd-submission-scripts/step6.*-equilib.sh <system-name>/namd
+cp cmd-submission-scripts/batch-submit.sh <system-name>/namd
 cd <system-name>/namd
 bash batch-submit.sh
 ```
  
 3. **cMD Production:** This is a single 1ns NAMD job that should be run before GaMD to ensure the system is stable. 
 ```bash
-cp <PATH>/submission-scripts/step7_production.sh <system-name>/namd
+cp cmd-submission-scripts/step7_production.sh <system-name>/namd
 cd <system-name>/namd
 sbatch step7_production.sh
 ```
