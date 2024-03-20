@@ -1,4 +1,4 @@
-## General
+x## General
 **Simulation Naming Convention**: \<Number of residues\>r.\<Number of chains\>c.\<orientation \> So for example, 42r.3c.embedded is a 42-residue abeta complex with 3 chains that is embedded in the membrane.
 
 **Useful Resources**:
@@ -35,7 +35,7 @@ sbatch step7_production.sh
 new-gamd-prod.sh <num>
 sbatch gamd-prod-<num>.sh
 ```
-Note that this script just copies the previous submission ``.sh`` and ``.inp`` files from the previous copy in the current directory, so it will not work if those files are not present, or if they are named something incorrectly. If you don't have any production scripts in the current directory, copy ``submission-scripts/gamd-prod-1.*`` to the current directory. 
+Note that this script just copies the previous submission ``.sh`` and ``.inp`` files from the previous copy in the current directory, so it will not work if those files are not present, or if they are named something incorrectly. If you don't have any production scripts in the current directory, copy ``gamd-submission-scripts/gamd-prod-1.*`` to the current directory. 
 
 **Note that simulations cannot be stopped mid-run,** so make sure you give them enough time. Email rcc if you need to extend the job, though they may take up to 24 hours to reply.
 
