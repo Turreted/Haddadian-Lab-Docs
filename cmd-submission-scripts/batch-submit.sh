@@ -1,0 +1,8 @@
+JOBID=$(sbatch --parsable step6.1-equilib.sh)
+JOBID=$(sbatch --parsable --dependency=afterok:$JOBID step6.2-equilib.sh)
+JOBID=$(sbatch --parsable --dependency=afterok:$JOBID step6.3-equilib.sh)
+JOBID=$(sbatch --parsable --dependency=afterok:$JOBID step6.4-equilib.sh)
+JOBID=$(sbatch --parsable --dependency=afterok:$JOBID step6.5-equilib.sh)
+JOBID=$(sbatch --parsable --dependency=afterok:$JOBID step6.6-equilib.sh)
+JOBID=$(sbatch --parsable --dependency=afterok:$JOBID step6.6-equilib.sh)
+JOBID=$(sbatch --parsable --dependency=afterok:$JOBID step7_production.sh)
