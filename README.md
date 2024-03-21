@@ -41,7 +41,29 @@ Note that this script just copies the previous submission ``.sh`` and ``.inp`` f
 
 
 ## Running AlphaFold simulations
-TBD, depending on whether the current RCC version of AlphaFold runs on your system
+
+### Installation
+It seems like RCC's AlphaFold installation is broken at the moment, so you're going to have to install it yourself. The following script will install AlphaFold to your $HOME and will install all required packages to a local conda env. It will take a while.
+
+```bash
+# download alphafold
+wget --directory-prefix=$HOME https://github.com/google-deepmind/alphafold/archive/refs/tags/v2.3.2.zip
+unzip ~/v2.3.2.zip # creates dir alphafold-2.3.2
+
+# install stuff to conda
+module load cuda/11.3
+source /software/python-anaconda-2020.11-el8-x86_64/etc/profile.d/conda.sh
+
+wget https://raw.githubusercontent.com/Turreted/Haddadian-Lab-Docs/main/alphafold-scripts/conda-env.txt
+conda create --name alphafold-local python=3.8 --file conda-env.txt
+rm conda-env.txt
+```
+
+### Running
+Once you have everything installed, you should be able to use the file provided in [alphafold/alphafold2.3-gpu.sh](https://github.com/Turreted/Haddadian-Lab-Docs/blob/main/alphafold-scripts/alphafold2.3-gpu.sh)
+```bash
+./alphafold2.3-gpu.sh -f <input fasta file> -o <output dir>
+```
 
 ## Building Systems
 
