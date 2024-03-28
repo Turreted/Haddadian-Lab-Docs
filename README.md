@@ -1,10 +1,24 @@
 ## General
-**Simulation Naming Convention**: \<Number of residues\>r.\<Number of chains\>c.\<orientation \> So for example, 42r.3c.embedded is a 42-residue abeta complex with 3 chains that is embedded in the membrane.
-
 **Useful Resources**:
 - [RCC Docs](https://rcc-uchicago.github.io/user-guide/)
 - [RCC AlphaFold Page](https://rcc-uchicago.github.io/user-guide/software/apps-and-envs/alphafold/?h=alpha)
 - [RCC NAMD Page](https://rcc-uchicago.github.io/user-guide/software/apps-and-envs/namd/?h=namd)
+
+**Simulation Naming Convention**: \<Number of residues\>r.\<Number of chains\>c.\<orientation \> So for example, 42r.3c.embedded is a 42-residue abeta complex with 3 chains that is embedded in the membrane.
+
+## Running AlphaFold simulations
+
+RCC has alphafold v2.3.2 installed on their system, so all you need to do is provide a FASTA file and use the file provided in [alphafold/alphafold2.3-submit.sh](https://github.com/Turreted/Haddadian-Lab-Docs/blob/main/alphafold-scripts/alphafold2.3-submit.sh) to run your job. 
+
+The template for running an AlphaFold job is:
+```bash
+sbatch alphafold2.3-submit.sh -f <input fasta file> -o <output dir>
+```
+To test that AlphaFold monomer and multimer work, run the following
+```bash
+sbatch alphafold2.3-submit.sh -f alphafold-scripts/tests/monomer-test.fasta -m monomer -o .
+sbatch alphafold2.3-submit.sh -f alphafold-scripts/tests/multimer-test.fasta -m multimer -o .
+```
 
 ## Running GaMD simulations
 
@@ -38,20 +52,6 @@ sbatch gamd-prod-<num>.sh
 Note that this script just copies the previous submission ``.sh`` and ``.inp`` files from the previous copy in the current directory, so it will not work if those files are not present, or if they are named something incorrectly. If you don't have any production scripts in the current directory, copy ``gamd-submission-scripts/gamd-prod-1.*`` to the current directory. 
 
 **Note that simulations cannot be stopped mid-run,** so make sure you give them enough time. Email rcc if you need to extend the job, though they may take up to 24 hours to reply.
-
-
-## Running AlphaFold simulations
-
-### Running
-Once you have everything installed, you should be able to use the file provided in [alphafold/alphafold2.3-submit.sh](https://github.com/Turreted/Haddadian-Lab-Docs/blob/main/alphafold-scripts/alphafold2.3-submit.sh)
-```bash
-sbatch alphafold2.3-submit.sh -f <input fasta file> -o <output dir>
-```
-To test that AlphaFold monomer and multimer work, run the following
-```bash
-sbatch alphafold2.3-submit.sh -f alphafold-scripts/tests/monomer-test.fasta -m monomer -o .
-sbatch alphafold2.3-submit.sh -f alphafold-scripts/tests/multimer-test.fasta -m multimer -o .
-```
 
 ## Building Systems
 
