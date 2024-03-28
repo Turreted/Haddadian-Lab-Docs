@@ -48,6 +48,9 @@ while getopts ":d:o:f:t:g:r:e:n:a:m:c:p:l:b:" i; do
         p)
                 use_precomputed_msas=$OPTARG
         ;;
+	m)
+                model_preset=$OPTARG
+        ;;
         esac
 done
 
