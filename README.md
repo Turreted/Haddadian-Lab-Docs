@@ -43,7 +43,7 @@ Note that this script just copies the previous submission ``.sh`` and ``.inp`` f
 ## Running AlphaFold simulations
 
 ### Running
-Once you have everything installed, you should be able to use the file provided in [alphafold/alphafold2.3-gpu.sh](https://github.com/Turreted/Haddadian-Lab-Docs/blob/main/alphafold-scripts/alphafold2.3-submit.sh)
+Once you have everything installed, you should be able to use the file provided in [alphafold/alphafold2.3-submit.sh](https://github.com/Turreted/Haddadian-Lab-Docs/blob/main/alphafold-scripts/alphafold2.3-submit.sh)
 ```bash
 sbatch alphafold2.3-submit.sh -f <input fasta file> -o <output dir>
 ```
