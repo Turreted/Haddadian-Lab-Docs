@@ -9,22 +9,8 @@
 #SBATCH --gres=gpu:2
 #SBATCH --mem=64G
 
-module load cuda/11.3 #alphafold/2.3.2
+module load alphafold/2.3.2 cuda/11.3
 
-# activate local conda env, only way to get Jaxlib + CudNN integration
-source /software/python-anaconda-2020.11-el8-x86_64/etc/profile.d/conda.sh
-conda activate alphafold-local
-
-# TensorFlow control
-export TF_FORCE_UNIFIED_MEMORY='1'
-# export TF_CPP_MIN_LOG_LEVEL=0 # enable for more debug output
-
-# JAX control
-export XLA_PYTHON_CLIENT_MEM_FRACTION='4.0'
-export XLA_PYTHON_CLIENT_ALLOCATOR=platform
-
-# Input parameters so we can easily configure input/output, all other parameters
-# should be modified from within the script
 # shamelessley ripped from https://github.com/kalininalab/alphafold_non_docker/blob/main/run_alphafold.sh
 usage() {
         echo ""
@@ -78,8 +64,6 @@ if [[ "$model_preset" != "monomer" && "$model_preset" != "monomer_casp14" && "$m
     model_preset="multimer"
 fi
 
-DOWNLOAD_DATA_DIR=/software/alphafold-data-2.3
-
 # add additional database paths for monomer / multimer
 if [[ $model_preset == "multimer" ]]; then
 	database_paths="--uniprot_database_path=$DOWNLOAD_DATA_DIR/uniprot/uniprot_sprot.fasta --pdb_seqres_database_path=$DOWNLOAD_DATA_DIR/pdb_seqres/pdb_seqres.txt"
@@ -89,9 +73,9 @@ fi
 
 echo "Running Alphafold with arguments: model=${model_preset}, use_precomputed_msas=${use_precomputed_msas}, max_template_date=${max_template_date}, fasta_file=${fasta_path}"
 
-cd ~/alphafold-2.3.2
+DOWNLOAD_DATA_DIR=/software/alphafold-data-2.3
 
-python run_alphafold.py  \
+python /software/alphafold-2.3.2-el8-x86_64/run_alphafold.py  \
   --data_dir=$DOWNLOAD_DATA_DIR  \
   $database_paths \
   --uniref90_database_path=$DOWNLOAD_DATA_DIR/uniref90/uniref90.fasta  \
